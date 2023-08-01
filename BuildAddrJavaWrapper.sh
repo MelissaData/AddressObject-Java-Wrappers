@@ -14,7 +14,7 @@ while [ $# -gt 0 ] ; do
 done
 
 ########################## Config ###########################
-RELEASE_VERSION='2023.06'
+RELEASE_VERSION='2023.07'
 
 mdAddrPath=$(pwd)
 
