@@ -1,8 +1,12 @@
 [Mm]elissa[Uu]pdater/
 
 mdAddr.dll
+libmdAddr.so
 
 *.h
 *.lib
 *.obj
 *.hash
+*.zip
+*.class
+*.jar

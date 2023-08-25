@@ -414,6 +414,9 @@ public final static class MailboxLookupMode {
 		return mdAddrJNI.GetResults(I);
 	}
 
+	public String GetResultCodeDescription(String resultCode) {
+		return mdAddrJNI.GetResultCodeDescription(I,resultCode,0);
+	}
 	public String GetResultCodeDescription(String resultCode, mdAddr.ResultCdDescOpt opt) {
 		return mdAddrJNI.GetResultCodeDescription(I,resultCode,opt.toValue());
 	}
