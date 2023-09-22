@@ -13,7 +13,7 @@ For further details, please visit: https://www.melissa.com/reference-guides/addr
 ## Tested Environments
 - Windows 10 64-bit Java 19, Microsoft Visual C++ 19.34, Powershell 5.1
 - Ubuntu Linux 20.04.04 LTS 64-bit Java 20, gcc 9.4.0 
-- Melissa Address Object for 2023-08
+- Melissa Address Object for 2023-09
 
 ## Getting Started
 These instructions will get you a copy of the wrappers needed to run the Java Address Object on your local machine. 
@@ -58,12 +58,12 @@ Melissa Updater is a CLI application allowing the user to update their Melissa a
 - Put `MelissaUpdater.exe` in `MelissaUpdater` folder you just created.
 
 #### Configure Scripts
-If you want to generate `mdAddrJavaWrapper.dll`, you will execute the `BuildAddrJavaWrapper.ps1` script. This may require you to configure some path variables in `BuildWrapper.ps1` and `BuildAddrJavaWrapper.ps1`.
+If you want to generate `mdAddrJavaWrapper.dll`, you will execute the `BuildAddrJavaWrapper.ps1` script. This may require you to configure some path variables in `Build.ps1` and `BuildAddrJavaWrapper.ps1`.
 
 BuildAddrJavaWrapper.ps1
 - Check the `$CmdPath` variable and configure the path to `vcvarsall.bat` if needed
 
-BuildWrapper.ps1
+Build.ps1
 - Check the `$JavaIncludeDirectory1` variable and configure the path to the `include` folder if needed
 - Check the `$JavaIncludeDirectory2` variable and configure the path to the `win32` folder if needed
 
