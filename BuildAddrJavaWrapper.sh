@@ -43,6 +43,13 @@ Config_Compiler3="C"
 Config_Architecture3="ANY"
 Config_Type3="INTERFACE"
 
+Config_FileName4="mdAddrJavaWrapper.cpp"
+Config_ReleaseVersion4=$RELEASE_VERSION
+Config_OS4="ANY"
+Config_Compiler4="JAVA"
+Config_Architecture4="ANY"
+Config_Type4="INTERFACE"
+
 Com_FileName="mdAddr_JavaCode.zip"
 Com_ReleaseVersion=$RELEASE_VERSION
 Com_OS="ANY"
@@ -85,6 +92,16 @@ DownloadFiles()
   
   printf "Melissa Updater finished downloading $Config_FileName3!\n"
 
+  ./MelissaUpdater/MelissaUpdater file --filename $Config_FileName4 --release_version $Config_ReleaseVersion4 --license $1 --os $Config_OS4 --compiler $Config_Compiler4 --architecture $Config_Architecture4 --type $Config_Type4 --target_directory $ProjectPath
+
+  if [ $? -ne 0 ];
+  then
+      printf "\nCannot run Melissa Updater. Please check your license string!\n"
+      exit 1
+  fi
+
+  printf "Melissa Updater finished downloading $Config_FileName4!\n"
+
   ./MelissaUpdater/MelissaUpdater file --filename $Com_FileName --release_version $Com_ReleaseVersion --license $1 --os $Com_OS --compiler $Com_Compiler --architecture $Com_Architecture --type $Com_Type --target_directory $ProjectPath
 
   if [ $? -ne 0 ];
@@ -116,7 +133,7 @@ DownloadFiles()
 
 CheckFiles() 
 {
-  printf "\nDouble checking SO file(s) were downloaded...\n"
+  printf "\nDouble checking file(s) were downloaded...\n"
   FileMissing=0
   if [ ! -f $Config_FileName1 ];
   then

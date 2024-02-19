@@ -16,7 +16,10 @@ class Utf8String {
 Utf8String::Utf8String(JNIEnv* jEnv,jstring str) {
 	env=jEnv;
 	jString=str;
-	utf8Ptr=env->GetStringUTFChars(jString,0);
+	if (jString!=0)
+		utf8Ptr=env->GetStringUTFChars(jString,0);
+	else
+		utf8Ptr=0;
 }
 
 Utf8String::~Utf8String() {
