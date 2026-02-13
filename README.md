@@ -6,23 +6,23 @@ This is the code for you to run Address Object in Java.
     
 Please feel free to copy or embed this code to your own project. Happy coding!
 
-For latest Melissa Address Object release notes, please visit: https://releasenotes.melissa.com/on-premise-api/address-object/
+To view the latest Melissa Address Object release notes or to subscribe to product notifications, please visit: https://releasenotes.melissa.com/on-premise-api/address-object/
 
 For further details, please visit: https://www.melissa.com/reference-guides/address-object
 
 ## Tested Environments
-- Windows 10 64-bit Java 19, Microsoft Visual C++ 19.34, Powershell 5.1
+- Windows 11 64-bit Java 19, Microsoft Visual C++ 19.34, Powershell 5.1
 - Ubuntu Linux 20.04.04 LTS 64-bit Java 20, gcc 9.4.0 
-- Melissa Address Object for 2026-01
-- Wrapper file(s) have not changed since 2024-02
+- Melissa Address Object for 2026-02
+- Wrapper file(s) have not changed since 2026-02
 
 ## Getting Started
 These instructions will get you a copy of the wrappers needed to run the Java Address Object on your local machine. 
 
 ### Download this project
 ```
-git clone https://github.com/MelissaData/AddressObject-Java-Wrappers
-cd AddressObject-Java-Wrappers
+git clone https://git.melissadata.com/dtgroup/melissadataobjectexamples/java/melissaaddressobjectjavawrappers.git
+cd melissaaddressobjectjavawrappers
 ```
 
 ### Copy wrappers to your project folder
