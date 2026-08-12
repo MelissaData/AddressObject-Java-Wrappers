@@ -12,276 +12,186 @@ public class mdAddr {
 		delete();
 	}
 
-public final static class ProgramStatus {
-	public final static mdAddr.ProgramStatus ErrorNone=new mdAddr.ProgramStatus("ErrorNone",0);
-	public final static mdAddr.ProgramStatus ErrorOther=new mdAddr.ProgramStatus("ErrorOther",1);
-	public final static mdAddr.ProgramStatus ErrorOutOfMemory=new mdAddr.ProgramStatus("ErrorOutOfMemory",2);
-	public final static mdAddr.ProgramStatus ErrorRequiredFileNotFound=new mdAddr.ProgramStatus("ErrorRequiredFileNotFound",3);
-	public final static mdAddr.ProgramStatus ErrorFoundOldFile=new mdAddr.ProgramStatus("ErrorFoundOldFile",4);
-	public final static mdAddr.ProgramStatus ErrorDatabaseExpired=new mdAddr.ProgramStatus("ErrorDatabaseExpired",5);
-	public final static mdAddr.ProgramStatus ErrorLicenseExpired=new mdAddr.ProgramStatus("ErrorLicenseExpired",6);
+	public final static class ProgramStatus {
+		public final static mdAddr.ProgramStatus ErrorNone=new mdAddr.ProgramStatus("ErrorNone",0);
+		public final static mdAddr.ProgramStatus ErrorOther=new mdAddr.ProgramStatus("ErrorOther",1);
+		public final static mdAddr.ProgramStatus ErrorOutOfMemory=new mdAddr.ProgramStatus("ErrorOutOfMemory",2);
+		public final static mdAddr.ProgramStatus ErrorRequiredFileNotFound=new mdAddr.ProgramStatus("ErrorRequiredFileNotFound",3);
+		public final static mdAddr.ProgramStatus ErrorFoundOldFile=new mdAddr.ProgramStatus("ErrorFoundOldFile",4);
+		public final static mdAddr.ProgramStatus ErrorDatabaseExpired=new mdAddr.ProgramStatus("ErrorDatabaseExpired",5);
+		public final static mdAddr.ProgramStatus ErrorLicenseExpired=new mdAddr.ProgramStatus("ErrorLicenseExpired",6);
 
-	private final String enumName;
-	private final int enumValue;
-	private static ProgramStatus[] enumValues={ErrorNone,ErrorOther,ErrorOutOfMemory,ErrorRequiredFileNotFound,ErrorFoundOldFile,ErrorDatabaseExpired,ErrorLicenseExpired};
+		private final String enumName;
+		private final int enumValue;
+		private static ProgramStatus[] enumValues={ErrorNone,ErrorOther,ErrorOutOfMemory,ErrorRequiredFileNotFound,ErrorFoundOldFile,ErrorDatabaseExpired,ErrorLicenseExpired};
 
-	private ProgramStatus(String name,int val) {
-		enumName=name;
-		enumValue=val;
+		private ProgramStatus(String name,int val) {
+			enumName=name;
+			enumValue=val;
+		}
+
+		public static ProgramStatus toEnum(int val) {
+			for (int i=0;i<enumValues.length;i++)
+				if (enumValues[i].enumValue==val)
+					return enumValues[i];
+			throw new IllegalArgumentException("No enum "+ProgramStatus.class+" with value "+val+".");
+		}
+
+		public String toString() {
+			return enumName;
+		}
+
+		public int toValue() {
+			return enumValue;
+		}
 	}
 
-	public static ProgramStatus toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+ProgramStatus.class+" with value "+val+".");
+	public final static class DiacriticsMode {
+		public final static mdAddr.DiacriticsMode Auto=new mdAddr.DiacriticsMode("Auto",0);
+		public final static mdAddr.DiacriticsMode On=new mdAddr.DiacriticsMode("On",1);
+		public final static mdAddr.DiacriticsMode Off=new mdAddr.DiacriticsMode("Off",2);
+
+		private final String enumName;
+		private final int enumValue;
+		private static DiacriticsMode[] enumValues={Auto,On,Off};
+
+		private DiacriticsMode(String name,int val) {
+			enumName=name;
+			enumValue=val;
+		}
+
+		public static DiacriticsMode toEnum(int val) {
+			for (int i=0;i<enumValues.length;i++)
+				if (enumValues[i].enumValue==val)
+					return enumValues[i];
+			throw new IllegalArgumentException("No enum "+DiacriticsMode.class+" with value "+val+".");
+		}
+
+		public String toString() {
+			return enumName;
+		}
+
+		public int toValue() {
+			return enumValue;
+		}
 	}
 
-	public String toString() {
-		return enumName;
+	public final static class StandardizeMode {
+		public final static mdAddr.StandardizeMode ShortFormat=new mdAddr.StandardizeMode("ShortFormat",0);
+		public final static mdAddr.StandardizeMode LongFormat=new mdAddr.StandardizeMode("LongFormat",1);
+		public final static mdAddr.StandardizeMode AutoFormat=new mdAddr.StandardizeMode("AutoFormat",2);
+
+		private final String enumName;
+		private final int enumValue;
+		private static StandardizeMode[] enumValues={ShortFormat,LongFormat,AutoFormat};
+
+		private StandardizeMode(String name,int val) {
+			enumName=name;
+			enumValue=val;
+		}
+
+		public static StandardizeMode toEnum(int val) {
+			for (int i=0;i<enumValues.length;i++)
+				if (enumValues[i].enumValue==val)
+					return enumValues[i];
+			throw new IllegalArgumentException("No enum "+StandardizeMode.class+" with value "+val+".");
+		}
+
+		public String toString() {
+			return enumName;
+		}
+
+		public int toValue() {
+			return enumValue;
+		}
 	}
 
-	public int toValue() {
-		return enumValue;
-	}
-}
+	public final static class SuiteParseMode {
+		public final static mdAddr.SuiteParseMode ParseSuite=new mdAddr.SuiteParseMode("ParseSuite",0);
+		public final static mdAddr.SuiteParseMode CombineSuite=new mdAddr.SuiteParseMode("CombineSuite",1);
 
-public final static class AccessType {
-	public final static mdAddr.AccessType Local=new mdAddr.AccessType("Local",0);
-	public final static mdAddr.AccessType Remote=new mdAddr.AccessType("Remote",1);
+		private final String enumName;
+		private final int enumValue;
+		private static SuiteParseMode[] enumValues={ParseSuite,CombineSuite};
 
-	private final String enumName;
-	private final int enumValue;
-	private static AccessType[] enumValues={Local,Remote};
+		private SuiteParseMode(String name,int val) {
+			enumName=name;
+			enumValue=val;
+		}
 
-	private AccessType(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
+		public static SuiteParseMode toEnum(int val) {
+			for (int i=0;i<enumValues.length;i++)
+				if (enumValues[i].enumValue==val)
+					return enumValues[i];
+			throw new IllegalArgumentException("No enum "+SuiteParseMode.class+" with value "+val+".");
+		}
 
-	public static AccessType toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+AccessType.class+" with value "+val+".");
-	}
+		public String toString() {
+			return enumName;
+		}
 
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class DiacriticsMode {
-	public final static mdAddr.DiacriticsMode Auto=new mdAddr.DiacriticsMode("Auto",0);
-	public final static mdAddr.DiacriticsMode On=new mdAddr.DiacriticsMode("On",1);
-	public final static mdAddr.DiacriticsMode Off=new mdAddr.DiacriticsMode("Off",2);
-
-	private final String enumName;
-	private final int enumValue;
-	private static DiacriticsMode[] enumValues={Auto,On,Off};
-
-	private DiacriticsMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
+		public int toValue() {
+			return enumValue;
+		}
 	}
 
-	public static DiacriticsMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+DiacriticsMode.class+" with value "+val+".");
+	public final static class AliasPreserveMode {
+		public final static mdAddr.AliasPreserveMode ConvertAlias=new mdAddr.AliasPreserveMode("ConvertAlias",0);
+		public final static mdAddr.AliasPreserveMode PreserveAlias=new mdAddr.AliasPreserveMode("PreserveAlias",1);
+
+		private final String enumName;
+		private final int enumValue;
+		private static AliasPreserveMode[] enumValues={ConvertAlias,PreserveAlias};
+
+		private AliasPreserveMode(String name,int val) {
+			enumName=name;
+			enumValue=val;
+		}
+
+		public static AliasPreserveMode toEnum(int val) {
+			for (int i=0;i<enumValues.length;i++)
+				if (enumValues[i].enumValue==val)
+					return enumValues[i];
+			throw new IllegalArgumentException("No enum "+AliasPreserveMode.class+" with value "+val+".");
+		}
+
+		public String toString() {
+			return enumName;
+		}
+
+		public int toValue() {
+			return enumValue;
+		}
 	}
 
-	public String toString() {
-		return enumName;
+	public final static class ResultCdDescOpt {
+		public final static mdAddr.ResultCdDescOpt ResultCodeDescriptionLong=new mdAddr.ResultCdDescOpt("ResultCodeDescriptionLong",0);
+		public final static mdAddr.ResultCdDescOpt ResultCodeDescriptionShort=new mdAddr.ResultCdDescOpt("ResultCodeDescriptionShort",1);
+
+		private final String enumName;
+		private final int enumValue;
+		private static ResultCdDescOpt[] enumValues={ResultCodeDescriptionLong,ResultCodeDescriptionShort};
+
+		private ResultCdDescOpt(String name,int val) {
+			enumName=name;
+			enumValue=val;
+		}
+
+		public static ResultCdDescOpt toEnum(int val) {
+			for (int i=0;i<enumValues.length;i++)
+				if (enumValues[i].enumValue==val)
+					return enumValues[i];
+			throw new IllegalArgumentException("No enum "+ResultCdDescOpt.class+" with value "+val+".");
+		}
+
+		public String toString() {
+			return enumName;
+		}
+
+		public int toValue() {
+			return enumValue;
+		}
 	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class StandardizeMode {
-	public final static mdAddr.StandardizeMode ShortFormat=new mdAddr.StandardizeMode("ShortFormat",0);
-	public final static mdAddr.StandardizeMode LongFormat=new mdAddr.StandardizeMode("LongFormat",1);
-	public final static mdAddr.StandardizeMode AutoFormat=new mdAddr.StandardizeMode("AutoFormat",2);
-
-	private final String enumName;
-	private final int enumValue;
-	private static StandardizeMode[] enumValues={ShortFormat,LongFormat,AutoFormat};
-
-	private StandardizeMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static StandardizeMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+StandardizeMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class SuiteParseMode {
-	public final static mdAddr.SuiteParseMode ParseSuite=new mdAddr.SuiteParseMode("ParseSuite",0);
-	public final static mdAddr.SuiteParseMode CombineSuite=new mdAddr.SuiteParseMode("CombineSuite",1);
-
-	private final String enumName;
-	private final int enumValue;
-	private static SuiteParseMode[] enumValues={ParseSuite,CombineSuite};
-
-	private SuiteParseMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static SuiteParseMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+SuiteParseMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class AliasPreserveMode {
-	public final static mdAddr.AliasPreserveMode ConvertAlias=new mdAddr.AliasPreserveMode("ConvertAlias",0);
-	public final static mdAddr.AliasPreserveMode PreserveAlias=new mdAddr.AliasPreserveMode("PreserveAlias",1);
-
-	private final String enumName;
-	private final int enumValue;
-	private static AliasPreserveMode[] enumValues={ConvertAlias,PreserveAlias};
-
-	private AliasPreserveMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static AliasPreserveMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+AliasPreserveMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class AutoCompletionMode {
-	public final static mdAddr.AutoCompletionMode AutoCompleteSingleSuite=new mdAddr.AutoCompletionMode("AutoCompleteSingleSuite",0);
-	public final static mdAddr.AutoCompletionMode AutoCompleteRangedSuite=new mdAddr.AutoCompletionMode("AutoCompleteRangedSuite",1);
-	public final static mdAddr.AutoCompletionMode AutoCompletePlaceHolderSuite=new mdAddr.AutoCompletionMode("AutoCompletePlaceHolderSuite",2);
-	public final static mdAddr.AutoCompletionMode AutoCompleteNoSuite=new mdAddr.AutoCompletionMode("AutoCompleteNoSuite",3);
-
-	private final String enumName;
-	private final int enumValue;
-	private static AutoCompletionMode[] enumValues={AutoCompleteSingleSuite,AutoCompleteRangedSuite,AutoCompletePlaceHolderSuite,AutoCompleteNoSuite};
-
-	private AutoCompletionMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static AutoCompletionMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+AutoCompletionMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class ResultCdDescOpt {
-	public final static mdAddr.ResultCdDescOpt ResultCodeDescriptionLong=new mdAddr.ResultCdDescOpt("ResultCodeDescriptionLong",0);
-	public final static mdAddr.ResultCdDescOpt ResultCodeDescriptionShort=new mdAddr.ResultCdDescOpt("ResultCodeDescriptionShort",1);
-
-	private final String enumName;
-	private final int enumValue;
-	private static ResultCdDescOpt[] enumValues={ResultCodeDescriptionLong,ResultCodeDescriptionShort};
-
-	private ResultCdDescOpt(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static ResultCdDescOpt toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+ResultCdDescOpt.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
-
-public final static class MailboxLookupMode {
-	public final static mdAddr.MailboxLookupMode MailboxNone=new mdAddr.MailboxLookupMode("MailboxNone",0);
-	public final static mdAddr.MailboxLookupMode MailboxExpress=new mdAddr.MailboxLookupMode("MailboxExpress",1);
-	public final static mdAddr.MailboxLookupMode MailboxPremium=new mdAddr.MailboxLookupMode("MailboxPremium",2);
-
-	private final String enumName;
-	private final int enumValue;
-	private static MailboxLookupMode[] enumValues={MailboxNone,MailboxExpress,MailboxPremium};
-
-	private MailboxLookupMode(String name,int val) {
-		enumName=name;
-		enumValue=val;
-	}
-
-	public static MailboxLookupMode toEnum(int val) {
-		for (int i=0;i<enumValues.length;i++)
-			if (enumValues[i].enumValue==val)
-				return enumValues[i];
-		throw new IllegalArgumentException("No enum "+MailboxLookupMode.class+" with value "+val+".");
-	}
-
-	public String toString() {
-		return enumName;
-	}
-
-	public int toValue() {
-		return enumValue;
-	}
-}
 
 	protected mdAddr(long i,boolean own) {
 		ownMemory=own;
