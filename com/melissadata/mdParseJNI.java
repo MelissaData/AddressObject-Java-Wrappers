@@ -12,12 +12,12 @@ public class mdParseJNI {
 
 	public final static native long mdParseCreate();
 	public final static native void mdParseDestroy(long I);
-	public final static native int Initialize(long I,String p1);
+	public final static native int Initialize(long I,String DataPath);
 	public final static native String GetBuildNumber(long I);
-	public final static native void Parse(long I,String p1);
-	public final static native void ParseCanadian(long I,String p1);
+	public final static native void Parse(long I,String AddressToParse);
+	public final static native void ParseCanadian(long I,String AddressToParse);
 	public final static native boolean ParseNext(long I);
-	public final static native void LastLineParse(long I,String p1);
+	public final static native void LastLineParse(long I,String LastLine);
 	public final static native String GetZip(long I);
 	public final static native String GetPlus4(long I);
 	public final static native String GetCity(long I);

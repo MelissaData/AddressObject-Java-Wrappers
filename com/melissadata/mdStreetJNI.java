@@ -12,17 +12,17 @@ public class mdStreetJNI {
 
 	public final static native long mdStreetCreate();
 	public final static native void mdStreetDestroy(long I);
-	public final static native int Initialize(long I,String p1,String p2,String p3);
+	public final static native int Initialize(long I,String DataPath,String NationalPath,String RegionalPath);
 	public final static native String GetInitializeErrorString(long I);
 	public final static native String GetDatabaseDate(long I);
 	public final static native String GetBuildNumber(long I);
-	public final static native boolean SetLicenseString(long I,String p1);
+	public final static native boolean SetLicenseString(long I,String License);
 	public final static native String GetLicenseExpirationDate(long I);
-	public final static native boolean FindStreet(long I,String p1,String p2,boolean p3);
+	public final static native boolean FindStreet(long I,String StreetName,String ZIP,boolean CodeOnly);
 	public final static native boolean FindStreetNext(long I);
-	public final static native boolean IsAddressInRange(long I,String p1,String p2,String p3);
-	public final static native boolean IsAddressInRange2(long I,String p1,String p2,String p3,String p4);
-	public final static native String GetAutoCompletion(long I,String p1,String p2,int p3,boolean p4);
+	public final static native boolean IsAddressInRange(long I,String InputRange,String LoRange,String HiRange);
+	public final static native boolean IsAddressInRange2(long I,String InputRange,String LoRange,String HiRange,String OddEvenFlag);
+	public final static native String GetAutoCompletion(long I,String Address,String Zip,int mode,boolean DPVOnly);
 	public final static native void ResetAutoCompletion(long I);
 	public final static native String GetBaseAlternateIndicator(long I);
 	public final static native String GetLACSIndicator(long I);

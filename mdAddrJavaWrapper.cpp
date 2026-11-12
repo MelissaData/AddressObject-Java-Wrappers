@@ -47,11 +47,11 @@ extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_mdAddrDestroy(J
 	delete (mdAddr*) I;
 }
 
-extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdAddrJNI_Initialize(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2,jstring p3) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	Utf8String _p3(jEnv,p3);
-	return (jint) ((mdAddr*) I)->Initialize(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr(),_p3.GetUtf8Ptr());
+extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdAddrJNI_Initialize(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataPath,jstring NationalPath,jstring RegionalPath) {
+	Utf8String _DataPath(jEnv,DataPath);
+	Utf8String _NationalPath(jEnv,NationalPath);
+	Utf8String _RegionalPath(jEnv,RegionalPath);
+	return (jint) ((mdAddr*) I)->Initialize(_DataPath.GetUtf8Ptr(),_NationalPath.GetUtf8Ptr(),_RegionalPath.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdAddrJNI_InitializeDataFiles(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
@@ -62,9 +62,9 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetInitializ
 	return UnicodeString(jEnv,((mdAddr*) I)->GetInitializeErrorString());
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdAddrJNI_SetLicenseString(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	return (jboolean) ((mdAddr*) I)->SetLicenseString(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdAddrJNI_SetLicenseString(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring License) {
+	Utf8String _License(jEnv,License);
+	return (jboolean) ((mdAddr*) I)->SetLicenseString(_License.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetBuildNumber(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
@@ -91,48 +91,48 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetCanadianE
 	return UnicodeString(jEnv,((mdAddr*) I)->GetCanadianExpirationDate());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToUSFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPathToUSFiles(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToUSFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataFilePath) {
+	Utf8String _DataFilePath(jEnv,DataFilePath);
+	((mdAddr*) I)->SetPathToUSFiles(_DataFilePath.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToCanadaFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPathToCanadaFiles(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToCanadaFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataFilePath) {
+	Utf8String _DataFilePath(jEnv,DataFilePath);
+	((mdAddr*) I)->SetPathToCanadaFiles(_DataFilePath.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToDPVDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPathToDPVDataFiles(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToDPVDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataFilePath) {
+	Utf8String _DataFilePath(jEnv,DataFilePath);
+	((mdAddr*) I)->SetPathToDPVDataFiles(_DataFilePath.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToLACSLinkDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPathToLACSLinkDataFiles(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToLACSLinkDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataFilePath) {
+	Utf8String _DataFilePath(jEnv,DataFilePath);
+	((mdAddr*) I)->SetPathToLACSLinkDataFiles(_DataFilePath.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToSuiteLinkDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPathToSuiteLinkDataFiles(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToSuiteLinkDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataFilePath) {
+	Utf8String _DataFilePath(jEnv,DataFilePath);
+	((mdAddr*) I)->SetPathToSuiteLinkDataFiles(_DataFilePath.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToSuiteFinderDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPathToSuiteFinderDataFiles(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToSuiteFinderDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataFilePath) {
+	Utf8String _DataFilePath(jEnv,DataFilePath);
+	((mdAddr*) I)->SetPathToSuiteFinderDataFiles(_DataFilePath.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToRBDIFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPathToRBDIFiles(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToRBDIFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataFilePath) {
+	Utf8String _DataFilePath(jEnv,DataFilePath);
+	((mdAddr*) I)->SetPathToRBDIFiles(_DataFilePath.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetRBDIDatabaseDate(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
 	return UnicodeString(jEnv,((mdAddr*) I)->GetRBDIDatabaseDate());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToAddrKeyDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPathToAddrKeyDataFiles(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPathToAddrKeyDataFiles(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataFilePath) {
+	Utf8String _DataFilePath(jEnv,DataFilePath);
+	((mdAddr*) I)->SetPathToAddrKeyDataFiles(_DataFilePath.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_ClearProperties(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
@@ -143,16 +143,16 @@ extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_ResetDPV(JNIEnv
 	((mdAddr*) I)->ResetDPV();
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetCASSEnable(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jint p1) {
-	((mdAddr*) I)->SetCASSEnable((int) p1);
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetCASSEnable(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jint Enable) {
+	((mdAddr*) I)->SetCASSEnable((int) Enable);
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetUseUSPSPreferredCityNames(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jint p1) {
-	((mdAddr*) I)->SetUseUSPSPreferredCityNames((int) p1);
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetUseUSPSPreferredCityNames(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jint Enable) {
+	((mdAddr*) I)->SetUseUSPSPreferredCityNames((int) Enable);
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetDiacritics(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jint p1) {
-	((mdAddr*) I)->SetDiacritics((mdAddr::DiacriticsMode) p1);
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetDiacritics(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jint mode) {
+	((mdAddr*) I)->SetDiacritics((mdAddr::DiacriticsMode) mode);
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetStatusCode(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
@@ -176,53 +176,53 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetResultCod
 	return UnicodeString(jEnv,((mdAddr*) I)->GetResultCodeDescription(_resultCode.GetUtf8Ptr(),(mdAddr::ResultCdDescOpt) opt));
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_B1_ProcessorName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPS3553_B1_ProcessorName(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_B1_ProcessorName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring ProcessorName) {
+	Utf8String _ProcessorName(jEnv,ProcessorName);
+	((mdAddr*) I)->SetPS3553_B1_ProcessorName(_ProcessorName.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_B4_ListName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPS3553_B4_ListName(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_B4_ListName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring ListName) {
+	Utf8String _ListName(jEnv,ListName);
+	((mdAddr*) I)->SetPS3553_B4_ListName(_ListName.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_Name(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPS3553_D3_Name(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_Name(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Name) {
+	Utf8String _Name(jEnv,Name);
+	((mdAddr*) I)->SetPS3553_D3_Name(_Name.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_Company(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPS3553_D3_Company(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_Company(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Company) {
+	Utf8String _Company(jEnv,Company);
+	((mdAddr*) I)->SetPS3553_D3_Company(_Company.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_Address(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPS3553_D3_Address(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_Address(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Address) {
+	Utf8String _Address(jEnv,Address);
+	((mdAddr*) I)->SetPS3553_D3_Address(_Address.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_City(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPS3553_D3_City(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_City(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring City) {
+	Utf8String _City(jEnv,City);
+	((mdAddr*) I)->SetPS3553_D3_City(_City.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_State(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPS3553_D3_State(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_State(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring State) {
+	Utf8String _State(jEnv,State);
+	((mdAddr*) I)->SetPS3553_D3_State(_State.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_ZIP(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPS3553_D3_ZIP(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPS3553_D3_ZIP(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring ZIP) {
+	Utf8String _ZIP(jEnv,ZIP);
+	((mdAddr*) I)->SetPS3553_D3_ZIP(_ZIP.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetFormPS3553(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
 	return UnicodeString(jEnv,((mdAddr*) I)->GetFormPS3553());
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdAddrJNI_SaveFormPS3553(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	return (jboolean) ((mdAddr*) I)->SaveFormPS3553(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdAddrJNI_SaveFormPS3553(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring PathAndFileName) {
+	Utf8String _PathAndFileName(jEnv,PathAndFileName);
+	return (jboolean) ((mdAddr*) I)->SaveFormPS3553(_PathAndFileName.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_ResetFormPS3553(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
@@ -249,9 +249,9 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetFormSOA(J
 	return UnicodeString(jEnv,((mdAddr*) I)->GetFormSOA());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SaveFormSOA(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SaveFormSOA(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SaveFormSOA(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring PathAndFileName) {
+	Utf8String _PathAndFileName(jEnv,PathAndFileName);
+	((mdAddr*) I)->SaveFormSOA(_PathAndFileName.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_ResetFormSOA(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
@@ -297,114 +297,114 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetSOAErrorS
 	return UnicodeString(jEnv,((mdAddr*) I)->GetSOAErrorString());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetCompany(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetCompany(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetCompany(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Company) {
+	Utf8String _Company(jEnv,Company);
+	((mdAddr*) I)->SetCompany(_Company.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetLastName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetLastName(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetLastName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring LastName) {
+	Utf8String _LastName(jEnv,LastName);
+	((mdAddr*) I)->SetLastName(_LastName.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetAddress(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetAddress(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetAddress(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Address) {
+	Utf8String _Address(jEnv,Address);
+	((mdAddr*) I)->SetAddress(_Address.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetAddress2(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetAddress2(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetAddress2(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Address2) {
+	Utf8String _Address2(jEnv,Address2);
+	((mdAddr*) I)->SetAddress2(_Address2.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetLastLine(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetLastLine(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetLastLine(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring LastLine) {
+	Utf8String _LastLine(jEnv,LastLine);
+	((mdAddr*) I)->SetLastLine(_LastLine.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetSuite(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetSuite(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetSuite(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Suite) {
+	Utf8String _Suite(jEnv,Suite);
+	((mdAddr*) I)->SetSuite(_Suite.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetCity(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetCity(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetCity(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring City) {
+	Utf8String _City(jEnv,City);
+	((mdAddr*) I)->SetCity(_City.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetState(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetState(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetState(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring State) {
+	Utf8String _State(jEnv,State);
+	((mdAddr*) I)->SetState(_State.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetZip(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetZip(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetZip(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Zip) {
+	Utf8String _Zip(jEnv,Zip);
+	((mdAddr*) I)->SetZip(_Zip.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPlus4(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetPlus4(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetPlus4(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Plus4) {
+	Utf8String _Plus4(jEnv,Plus4);
+	((mdAddr*) I)->SetPlus4(_Plus4.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetUrbanization(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetUrbanization(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetUrbanization(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Urbanization) {
+	Utf8String _Urbanization(jEnv,Urbanization);
+	((mdAddr*) I)->SetUrbanization(_Urbanization.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedAddressRange(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedAddressRange(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedAddressRange(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring AddressRange) {
+	Utf8String _AddressRange(jEnv,AddressRange);
+	((mdAddr*) I)->SetParsedAddressRange(_AddressRange.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedPreDirection(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedPreDirection(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedPreDirection(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring PreDirection) {
+	Utf8String _PreDirection(jEnv,PreDirection);
+	((mdAddr*) I)->SetParsedPreDirection(_PreDirection.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedStreetName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedStreetName(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedStreetName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring StreetName) {
+	Utf8String _StreetName(jEnv,StreetName);
+	((mdAddr*) I)->SetParsedStreetName(_StreetName.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedSuffix(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedSuffix(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedSuffix(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Suffix) {
+	Utf8String _Suffix(jEnv,Suffix);
+	((mdAddr*) I)->SetParsedSuffix(_Suffix.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedPostDirection(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedPostDirection(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedPostDirection(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring PostDirection) {
+	Utf8String _PostDirection(jEnv,PostDirection);
+	((mdAddr*) I)->SetParsedPostDirection(_PostDirection.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedSuiteName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedSuiteName(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedSuiteName(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring SuiteName) {
+	Utf8String _SuiteName(jEnv,SuiteName);
+	((mdAddr*) I)->SetParsedSuiteName(_SuiteName.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedSuiteRange(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedSuiteRange(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedSuiteRange(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring SuiteRange) {
+	Utf8String _SuiteRange(jEnv,SuiteRange);
+	((mdAddr*) I)->SetParsedSuiteRange(_SuiteRange.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedRouteService(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedRouteService(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedRouteService(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring RouteService) {
+	Utf8String _RouteService(jEnv,RouteService);
+	((mdAddr*) I)->SetParsedRouteService(_RouteService.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedLockBox(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedLockBox(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedLockBox(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring LockBox) {
+	Utf8String _LockBox(jEnv,LockBox);
+	((mdAddr*) I)->SetParsedLockBox(_LockBox.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedDeliveryInstallation(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetParsedDeliveryInstallation(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetParsedDeliveryInstallation(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DeliveryInstallation) {
+	Utf8String _DeliveryInstallation(jEnv,DeliveryInstallation);
+	((mdAddr*) I)->SetParsedDeliveryInstallation(_DeliveryInstallation.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetCountryCode(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdAddr*) I)->SetCountryCode(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetCountryCode(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring CountryCode) {
+	Utf8String _CountryCode(jEnv,CountryCode);
+	((mdAddr*) I)->SetCountryCode(_CountryCode.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdAddrJNI_VerifyAddress(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
@@ -583,15 +583,15 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetMelissaAd
 	return UnicodeString(jEnv,((mdAddr*) I)->GetMelissaAddressKeyBase());
 }
 
-extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetOutputParameter(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	return UnicodeString(jEnv,((mdAddr*) I)->GetOutputParameter(_p1.GetUtf8Ptr()));
+extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetOutputParameter(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring ParameterName) {
+	Utf8String _ParameterName(jEnv,ParameterName);
+	return UnicodeString(jEnv,((mdAddr*) I)->GetOutputParameter(_ParameterName.GetUtf8Ptr()));
 }
 
-extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdAddrJNI_SetInputParameter(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	return (jint) ((mdAddr*) I)->SetInputParameter(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr());
+extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdAddrJNI_SetInputParameter(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring ParameterName,jstring Value) {
+	Utf8String _ParameterName(jEnv,ParameterName);
+	Utf8String _Value(jEnv,Value);
+	return (jint) ((mdAddr*) I)->SetInputParameter(_ParameterName.GetUtf8Ptr(),_Value.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdAddrJNI_FindSuggestion(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
@@ -794,15 +794,15 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetParsedDel
 	return UnicodeString(jEnv,((mdAddr*) I)->GetParsedDeliveryInstallation());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetReserved(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	((mdAddr*) I)->SetReserved(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdAddrJNI_SetReserved(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Key,jstring Value) {
+	Utf8String _Key(jEnv,Key);
+	Utf8String _Value(jEnv,Value);
+	((mdAddr*) I)->SetReserved(_Key.GetUtf8Ptr(),_Value.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetReserved(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	return UnicodeString(jEnv,((mdAddr*) I)->GetReserved(_p1.GetUtf8Ptr()));
+extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdAddrJNI_GetReserved(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Key) {
+	Utf8String _Key(jEnv,Key);
+	return UnicodeString(jEnv,((mdAddr*) I)->GetReserved(_Key.GetUtf8Ptr()));
 }
 
 extern "C" JNIEXPORT jlong JNICALL Java_com_melissadata_mdParseJNI_mdParseCreate(JNIEnv* /*jEnv*/,jclass /*jCls*/) {
@@ -813,32 +813,32 @@ extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdParseJNI_mdParseDestroy
 	delete (mdParse*) I;
 }
 
-extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdParseJNI_Initialize(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	return (jint) ((mdParse*) I)->Initialize(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdParseJNI_Initialize(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataPath) {
+	Utf8String _DataPath(jEnv,DataPath);
+	return (jint) ((mdParse*) I)->Initialize(_DataPath.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdParseJNI_GetBuildNumber(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
 	return UnicodeString(jEnv,((mdParse*) I)->GetBuildNumber());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdParseJNI_Parse(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdParse*) I)->Parse(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdParseJNI_Parse(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring AddressToParse) {
+	Utf8String _AddressToParse(jEnv,AddressToParse);
+	((mdParse*) I)->Parse(_AddressToParse.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdParseJNI_ParseCanadian(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdParse*) I)->ParseCanadian(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdParseJNI_ParseCanadian(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring AddressToParse) {
+	Utf8String _AddressToParse(jEnv,AddressToParse);
+	((mdParse*) I)->ParseCanadian(_AddressToParse.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdParseJNI_ParseNext(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
 	return (jboolean) ((mdParse*) I)->ParseNext();
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdParseJNI_LastLineParse(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	((mdParse*) I)->LastLineParse(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdParseJNI_LastLineParse(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring LastLine) {
+	Utf8String _LastLine(jEnv,LastLine);
+	((mdParse*) I)->LastLineParse(_LastLine.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdParseJNI_GetZip(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
@@ -917,11 +917,11 @@ extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdStreetJNI_mdStreetDestr
 	delete (mdStreet*) I;
 }
 
-extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdStreetJNI_Initialize(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2,jstring p3) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	Utf8String _p3(jEnv,p3);
-	return (jint) ((mdStreet*) I)->Initialize(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr(),_p3.GetUtf8Ptr());
+extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdStreetJNI_Initialize(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataPath,jstring NationalPath,jstring RegionalPath) {
+	Utf8String _DataPath(jEnv,DataPath);
+	Utf8String _NationalPath(jEnv,NationalPath);
+	Utf8String _RegionalPath(jEnv,RegionalPath);
+	return (jint) ((mdStreet*) I)->Initialize(_DataPath.GetUtf8Ptr(),_NationalPath.GetUtf8Ptr(),_RegionalPath.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdStreetJNI_GetInitializeErrorString(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
@@ -936,44 +936,44 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdStreetJNI_GetBuildNu
 	return UnicodeString(jEnv,((mdStreet*) I)->GetBuildNumber());
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_SetLicenseString(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	return (jboolean) ((mdStreet*) I)->SetLicenseString(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_SetLicenseString(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring License) {
+	Utf8String _License(jEnv,License);
+	return (jboolean) ((mdStreet*) I)->SetLicenseString(_License.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdStreetJNI_GetLicenseExpirationDate(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
 	return UnicodeString(jEnv,((mdStreet*) I)->GetLicenseExpirationDate());
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_FindStreet(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2,jboolean p3) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	return (jboolean) ((mdStreet*) I)->FindStreet(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr(),p3!=0 ? true : false);
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_FindStreet(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring StreetName,jstring ZIP,jboolean CodeOnly) {
+	Utf8String _StreetName(jEnv,StreetName);
+	Utf8String _ZIP(jEnv,ZIP);
+	return (jboolean) ((mdStreet*) I)->FindStreet(_StreetName.GetUtf8Ptr(),_ZIP.GetUtf8Ptr(),CodeOnly!=0 ? true : false);
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_FindStreetNext(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
 	return (jboolean) ((mdStreet*) I)->FindStreetNext();
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_IsAddressInRange(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2,jstring p3) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	Utf8String _p3(jEnv,p3);
-	return (jboolean) ((mdStreet*) I)->IsAddressInRange(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr(),_p3.GetUtf8Ptr());
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_IsAddressInRange(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring InputRange,jstring LoRange,jstring HiRange) {
+	Utf8String _InputRange(jEnv,InputRange);
+	Utf8String _LoRange(jEnv,LoRange);
+	Utf8String _HiRange(jEnv,HiRange);
+	return (jboolean) ((mdStreet*) I)->IsAddressInRange(_InputRange.GetUtf8Ptr(),_LoRange.GetUtf8Ptr(),_HiRange.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_IsAddressInRange2(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2,jstring p3,jstring p4) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	Utf8String _p3(jEnv,p3);
-	Utf8String _p4(jEnv,p4);
-	return (jboolean) ((mdStreet*) I)->IsAddressInRange2(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr(),_p3.GetUtf8Ptr(),_p4.GetUtf8Ptr());
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdStreetJNI_IsAddressInRange2(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring InputRange,jstring LoRange,jstring HiRange,jstring OddEvenFlag) {
+	Utf8String _InputRange(jEnv,InputRange);
+	Utf8String _LoRange(jEnv,LoRange);
+	Utf8String _HiRange(jEnv,HiRange);
+	Utf8String _OddEvenFlag(jEnv,OddEvenFlag);
+	return (jboolean) ((mdStreet*) I)->IsAddressInRange2(_InputRange.GetUtf8Ptr(),_LoRange.GetUtf8Ptr(),_HiRange.GetUtf8Ptr(),_OddEvenFlag.GetUtf8Ptr());
 }
 
-extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdStreetJNI_GetAutoCompletion(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2,jint p3,jboolean p4) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	return UnicodeString(jEnv,((mdStreet*) I)->GetAutoCompletion(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr(),(mdStreet::AutoCompletionMode) p3,p4!=0 ? true : false));
+extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdStreetJNI_GetAutoCompletion(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Address,jstring Zip,jint mode,jboolean DPVOnly) {
+	Utf8String _Address(jEnv,Address);
+	Utf8String _Zip(jEnv,Zip);
+	return UnicodeString(jEnv,((mdStreet*) I)->GetAutoCompletion(_Address.GetUtf8Ptr(),_Zip.GetUtf8Ptr(),(mdStreet::AutoCompletionMode) mode,DPVOnly!=0 ? true : false));
 }
 
 extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdStreetJNI_ResetAutoCompletion(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
@@ -1088,11 +1088,11 @@ extern "C" JNIEXPORT void JNICALL Java_com_melissadata_mdZipJNI_mdZipDestroy(JNI
 	delete (mdZip*) I;
 }
 
-extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdZipJNI_Initialize(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2,jstring p3) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	Utf8String _p3(jEnv,p3);
-	return (jint) ((mdZip*) I)->Initialize(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr(),_p3.GetUtf8Ptr());
+extern "C" JNIEXPORT jint JNICALL Java_com_melissadata_mdZipJNI_Initialize(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring DataPath,jstring NationalPath,jstring RegionalPath) {
+	Utf8String _DataPath(jEnv,DataPath);
+	Utf8String _NationalPath(jEnv,NationalPath);
+	Utf8String _RegionalPath(jEnv,RegionalPath);
+	return (jint) ((mdZip*) I)->Initialize(_DataPath.GetUtf8Ptr(),_NationalPath.GetUtf8Ptr(),_RegionalPath.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdZipJNI_GetInitializeErrorString(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
@@ -1107,55 +1107,55 @@ extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdZipJNI_GetBuildNumbe
 	return UnicodeString(jEnv,((mdZip*) I)->GetBuildNumber());
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_SetLicenseString(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	return (jboolean) ((mdZip*) I)->SetLicenseString(_p1.GetUtf8Ptr());
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_SetLicenseString(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring License) {
+	Utf8String _License(jEnv,License);
+	return (jboolean) ((mdZip*) I)->SetLicenseString(_License.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdZipJNI_GetLicenseExpirationDate(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
 	return UnicodeString(jEnv,((mdZip*) I)->GetLicenseExpirationDate());
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindZip(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jboolean p2) {
-	Utf8String _p1(jEnv,p1);
-	return (jboolean) ((mdZip*) I)->FindZip(_p1.GetUtf8Ptr(),p2!=0 ? true : false);
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindZip(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring Zip,jboolean GetLastLineRecord) {
+	Utf8String _Zip(jEnv,Zip);
+	return (jboolean) ((mdZip*) I)->FindZip(_Zip.GetUtf8Ptr(),GetLastLineRecord!=0 ? true : false);
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindZipNext(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
 	return (jboolean) ((mdZip*) I)->FindZipNext();
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindZipInCity(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	return (jboolean) ((mdZip*) I)->FindZipInCity(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr());
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindZipInCity(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring City,jstring State) {
+	Utf8String _City(jEnv,City);
+	Utf8String _State(jEnv,State);
+	return (jboolean) ((mdZip*) I)->FindZipInCity(_City.GetUtf8Ptr(),_State.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindZipInCityNext(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
 	return (jboolean) ((mdZip*) I)->FindZipInCityNext();
 }
 
-extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindCityInState(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1,jstring p2) {
-	Utf8String _p1(jEnv,p1);
-	Utf8String _p2(jEnv,p2);
-	return (jboolean) ((mdZip*) I)->FindCityInState(_p1.GetUtf8Ptr(),_p2.GetUtf8Ptr());
+extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindCityInState(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring City,jstring State) {
+	Utf8String _City(jEnv,City);
+	Utf8String _State(jEnv,State);
+	return (jboolean) ((mdZip*) I)->FindCityInState(_City.GetUtf8Ptr(),_State.GetUtf8Ptr());
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_com_melissadata_mdZipJNI_FindCityInStateNext(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I) {
 	return (jboolean) ((mdZip*) I)->FindCityInStateNext();
 }
 
-extern "C" JNIEXPORT jdouble JNICALL Java_com_melissadata_mdZipJNI_ComputeDistance(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jdouble p1,jdouble p2,jdouble p3,jdouble p4) {
-	return (jdouble) ((mdZip*) I)->ComputeDistance((double) p1,(double) p2,(double) p3,(double) p4);
+extern "C" JNIEXPORT jdouble JNICALL Java_com_melissadata_mdZipJNI_ComputeDistance(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jdouble lat1,jdouble long1,jdouble lat2,jdouble long2) {
+	return (jdouble) ((mdZip*) I)->ComputeDistance((double) lat1,(double) long1,(double) lat2,(double) long2);
 }
 
-extern "C" JNIEXPORT jdouble JNICALL Java_com_melissadata_mdZipJNI_ComputeBearing(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jdouble p1,jdouble p2,jdouble p3,jdouble p4) {
-	return (jdouble) ((mdZip*) I)->ComputeBearing((double) p1,(double) p2,(double) p3,(double) p4);
+extern "C" JNIEXPORT jdouble JNICALL Java_com_melissadata_mdZipJNI_ComputeBearing(JNIEnv* /*jEnv*/,jclass /*jCls*/,jlong I,jdouble lat1,jdouble long1,jdouble lat2,jdouble long2) {
+	return (jdouble) ((mdZip*) I)->ComputeBearing((double) lat1,(double) long1,(double) lat2,(double) long2);
 }
 
-extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdZipJNI_GetCountyNameFromFips(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring p1) {
-	Utf8String _p1(jEnv,p1);
-	return UnicodeString(jEnv,((mdZip*) I)->GetCountyNameFromFips(_p1.GetUtf8Ptr()));
+extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdZipJNI_GetCountyNameFromFips(JNIEnv* jEnv,jclass /*jCls*/,jlong I,jstring FipsCode) {
+	Utf8String _FipsCode(jEnv,FipsCode);
+	return UnicodeString(jEnv,((mdZip*) I)->GetCountyNameFromFips(_FipsCode.GetUtf8Ptr()));
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_melissadata_mdZipJNI_GetZip(JNIEnv* jEnv,jclass /*jCls*/,jlong I) {
